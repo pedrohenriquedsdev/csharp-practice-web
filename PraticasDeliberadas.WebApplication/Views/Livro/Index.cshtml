@@ -1,0 +1,36 @@
+﻿@model List<PraticasDeliberadas.WebApplication.Models.Entities.Livro>
+
+<h1>Livros</h1>
+
+<a asp-action="Cadastrar">Cadastrar novo livro</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Gênero</th>
+            <th>Disponível</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var livro in Model)
+        {
+            <tr>
+                <td>@livro.Id</td>
+                <td>@livro.Titulo</td>
+                <td>@livro.Autor</td>
+                <td>@livro.Genero</td>
+                <td>@livro.EstaDisponivel</td>
+                <td>
+                    <a asp-action="Detalhes" asp-route-id="@livro.Id">Detalhes</a>
+                    <a asp-action="Editar" asp-route-id="@livro.Id">Editar</a>
+                    <a asp-action="Excluir" asp-route-id="@livro.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

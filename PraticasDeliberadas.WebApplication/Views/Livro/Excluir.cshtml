@@ -1,0 +1,16 @@
+﻿@model PraticasDeliberadas.WebApplication.Models.Entities.Livro
+
+<h1>Excluir Livro</h1>
+
+<p>Tem certeza que deseja excluir este livro?</p>
+
+<p><strong>Id:</strong> @Model.Id</p>
+<p><strong>Título:</strong> @Model.Titulo</p>
+<p><strong>Autor:</strong> @Model.Autor</p>
+<p><strong>Gênero:</strong> @Model.Genero</p>
+
+<form asp-action="ConfirmarExclusao" asp-route-id="@Model.Id" method="post">
+    <button type="submit">Confirmar exclusão</button>
+</form>
+
+<a asp-action="Index">Cancelar</a>

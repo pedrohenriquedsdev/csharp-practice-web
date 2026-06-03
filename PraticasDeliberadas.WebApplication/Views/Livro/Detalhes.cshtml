@@ -1,0 +1,12 @@
+﻿@model PraticasDeliberadas.WebApplication.Models.Entities.Livro
+
+<h1>Detalhes do Livro</h1>
+
+<p><strong>Id:</strong> @Model.Id</p>
+<p><strong>Título:</strong> @Model.Titulo</p>
+<p><strong>Autor:</strong> @Model.Autor</p>
+<p><strong>Gênero:</strong> @Model.Genero</p>
+<p><strong>Disponível:</strong> @Model.EstaDisponivel</p>
+
+<a asp-action="Index">Voltar</a>
+<a asp-action="Editar" asp-route-id="@Model.Id">Editar</a>
