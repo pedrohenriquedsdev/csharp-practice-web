@@ -7,4 +7,13 @@
     <RootNamespace>_01_WebApplication_CourseInstructorMvc</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Compartilhado\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="ModuloInstrutor\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Home\" />
+    <Folder Include="Views\Shared\" />
+  </ItemGroup>
+
 </Project>
