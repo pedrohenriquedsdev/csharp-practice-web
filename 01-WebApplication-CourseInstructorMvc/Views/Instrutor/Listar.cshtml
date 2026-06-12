@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Listagem de Fabricantes";
+}
+
+@using _01_WebApplication_CourseInstructorMvc.ModuloInstrutor
+
+@model List<Instrutor>;
+@* SÃO DADOS ESTRUTURADOS QUE PASSAMOS POR MEIO DE CONTROLLERS *@
+
+<a class="btn-cadastrar" href="/Fabricante/Cadastrar">Cadastrar Novo</a>
+
+<table class="registros">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Instrutor i in Model)
+        {
+            <tr>
+                <td>@i.Id</td>
+                <td>@i.Nome</td>
+                <td>@i.Email</td>
+                <td>@i.Telefone</td>
+                <td>
+                    <a href="/Fabricante/Editar/@i.Id">Editar</a>
+                    <a href="/Fabricante/Excluir/@i.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

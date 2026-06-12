@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @* Fonte personalizada *@
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+    rel="stylesheet">
+
+    @* CSS da aplicação *@
+    <link rel="stylesheet" href="~/css/styles.css">
+
+    <title>@ViewBag.Titulo - Gestão de Equipamentos</title>
+</head>
+
+<body>
+    <nav>
+        <h3>Gestão de Equipamentos</h3>
+
+        <div class="links-navbar">
+            <a href="/">Início</a>
+            <a href="/Fabricante/Listar">Controle de Fabricantes</a>
+            <a href="/Equipamento/Listar">Controle de Equipamentos</a>
+            <a href="/Chamado/Listar">Controle de Chamados</a>
+        </div>
+
+    </nav>
+
+    <header>
+        <h2>@ViewBag.Titulo</h2>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+</body>
+
+</html>
