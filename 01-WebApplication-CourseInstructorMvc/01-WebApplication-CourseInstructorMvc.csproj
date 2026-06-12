@@ -14,6 +14,7 @@
     <Folder Include="ModuloInstrutor\" />
     <Folder Include="Views\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="Views\Instrutor\" />
   </ItemGroup>
 
 </Project>
