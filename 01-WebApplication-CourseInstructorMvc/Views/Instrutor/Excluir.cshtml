@@ -1,0 +1,35 @@
+﻿@using _01_WebApplication_CourseInstructorMvc.ModuloInstrutor
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Exclusão de Instrutor";
+}
+
+@model Instrutor;
+
+<form class="formulario" action="/Instrutor/Excluir/@Model.Id" method="post">
+
+    <p class="formulario-alerta">Deseja realmente excluir este instrutor?</p>
+
+    <div class="formulario-campo">
+        <label>Nome</label>
+        <br>
+        <input type="text" name="Nome" value="@Model.Nome" disabled>
+    </div>
+
+    <div class="formulario-campo">
+        <label>Email</label>
+        <br>
+        <input type="email" name="Email" value="@Model.Email" disabled>
+    </div>
+
+    <div class="formulario-campo">
+        <label>Telefone</label>
+        <br>
+        <input type="text" name="Telefone" value="@Model.Telefone" disabled>
+    </div>
+
+    <div class="formulario-acoes">
+        <a href="/Instrutor/Listar">Voltar</a>
+        <button type="submit">Confirmar</button>
+    </div>
+</form>
