@@ -1,4 +1,5 @@
-namespace GestaoDeEquipamentosWeb.ConsoleApp.Compartilhado;
+namespace _01_WebApplication_CourseInstructorMvc.Compartilhado;
+
 
 public interface IRepositorio<T> where T : EntidadeBase<T>
 {

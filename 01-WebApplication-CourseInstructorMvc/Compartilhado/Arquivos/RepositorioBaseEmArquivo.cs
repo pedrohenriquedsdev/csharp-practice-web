@@ -1,6 +1,7 @@
-namespace GestaoDeEquipamentosWeb.ConsoleApp.Compartilhado.Arquivos;
+namespace _01_WebApplication_CourseInstructorMvc.Compartilhado.Arquivos;
 
-public abstract class RepositorioBaseEmArquivo<T> where T : EntidadeBase<T>
+public abstract class RepositorioBaseEmArquivo<T> : IRepositorio<T>
+    where T : EntidadeBase<T>
 {
     protected ContextoJson contexto;
     protected List<T> registros;

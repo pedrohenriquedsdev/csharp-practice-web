@@ -1,10 +1,13 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using _01_WebApplication_CourseInstructorMvc.ModuloInstrutor;
 
-namespace GestaoDeEquipamentosWeb.ConsoleApp.Compartilhado.Arquivos;
+namespace _01_WebApplication_CourseInstructorMvc.Compartilhado.Arquivos;
 
 public sealed class ContextoJson
 {
+    public List<Instrutor> Instrutores { get; set; } = new List<Instrutor>();
+
     private readonly string caminhoArquivo;
 
     public ContextoJson() // setando algumas estruturas básicas de persistência. PS -> devemos criar primeiramente a entidade.
@@ -41,9 +44,13 @@ public sealed class ContextoJson
         opcoesJson.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
         opcoesJson.ReferenceHandler = ReferenceHandler.Preserve;
 
+        // Novo objeto contextoSalvo. 
+        // Copiar os dados desse objeto salvo para o contexto atual:
         ContextoJson? contextoSalvo = JsonSerializer.Deserialize<ContextoJson>(jsonString, opcoesJson);
 
         if (contextoSalvo == null)
             return;
+
+        Instrutores = contextoSalvo.Instrutores;
     }
 }

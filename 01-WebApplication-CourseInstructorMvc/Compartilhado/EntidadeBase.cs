@@ -1,6 +1,6 @@
 using System.Security.Cryptography;
 
-namespace GestaoDeEquipamentosWeb.ConsoleApp.Compartilhado;
+namespace _01_WebApplication_CourseInstructorMvc.Compartilhado;
 
 public abstract class EntidadeBase<T>
 {
