@@ -1,6 +1,6 @@
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews(); //ativa o mvc
+builder.Services.AddControllersWithViews(); // ativa o mvc
 
 WebApplication app = builder.Build();
 
