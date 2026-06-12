@@ -10,7 +10,10 @@
   <ItemGroup>
     <Folder Include="Compartilhado\" />
     <Folder Include="Compartilhado\Arquivos\" />
+    <Folder Include="Controllers\" />
     <Folder Include="ModuloInstrutor\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
 
 </Project>
