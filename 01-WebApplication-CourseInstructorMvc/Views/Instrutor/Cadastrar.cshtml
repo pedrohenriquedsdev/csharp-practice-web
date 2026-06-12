@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Cadastro de Instrutores";
+}
+
+<form class="formulario" action="/Instrutor/Cadastrar" method="post">
+
+    <div class="formulario-campo">
+        <label>Nome</label>
+        <br>
+        <input type="text" name="Nome">
+    </div>
+
+    <div class="formulario-campo">
+        <label>Email</label>
+        <br>
+        <input type="email" name="Email">
+    </div>
+
+    <div class="formulario-campo">
+        <label>Telefone</label>
+        <br>
+        <input type="text" name="Telefone">
+    </div>
+
+    <div class="formulario-acoes">
+        <a href="/Instrutor/Listar">Voltar</a>
+        <button type="submit">Confirmar</button>
+    </div>
+</form>
