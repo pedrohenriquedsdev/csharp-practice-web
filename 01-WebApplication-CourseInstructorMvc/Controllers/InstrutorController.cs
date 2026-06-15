@@ -1,5 +1,6 @@
 using _01_WebApplication_CourseInstructorMvc.Compartilhado;
 using _01_WebApplication_CourseInstructorMvc.Compartilhado.Arquivos;
+using _01_WebApplication_CourseInstructorMvc.Models;
 using _01_WebApplication_CourseInstructorMvc.ModuloInstrutor;
 using Microsoft.AspNetCore.Mvc;
 
@@ -46,7 +47,21 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         {
             List<Instrutor> instrutores = repositorioInstrutor.SelecionarTodos();
 
-            return View(instrutores);
+            List<ListarInstrutoresViewModel> listarVms = new List<ListarInstrutoresViewModel>();
+
+            foreach (Instrutor i in instrutores)
+            {
+                ListarInstrutoresViewModel viewModel = new ListarInstrutoresViewModel(
+                    i.Id,
+                    i.Nome,
+                    i.Email,
+                    i.Telefone
+                );
+
+                listarVms.Add(viewModel);
+            }
+
+            return View(listarVms);
         }
 
         // CADASTRAR
