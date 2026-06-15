@@ -134,7 +134,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
                 instrutor.Telefone
             );
 
-            return View(instrutor);
+            return View(excluirVm);
         }
 
         [HttpPost]
