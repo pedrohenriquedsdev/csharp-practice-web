@@ -1,11 +1,12 @@
-﻿@using _01_WebApplication_CourseInstructorMvc.ModuloInstrutor
+﻿@using _01_WebApplication_CourseInstructorMvc.Models
+@using _01_WebApplication_CourseInstructorMvc.ModuloInstrutor
 
 @{
     Layout = "_Layout";
     ViewBag.Titulo = "Edição de Instrutor";
 }
 
-@model Instrutor;
+@model EditarInstrutorViewModel;
 
 <form class="formulario" action="/Instrutor/Editar/@Model.Id" method="post">
     <div class="formulario-campo">
