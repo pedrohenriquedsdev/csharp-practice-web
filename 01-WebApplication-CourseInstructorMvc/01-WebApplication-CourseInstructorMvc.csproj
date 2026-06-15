@@ -12,6 +12,7 @@
     <Folder Include="Compartilhado\Arquivos\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="ModuloCurso\" />
     <Folder Include="ModuloInstrutor\" />
     <Folder Include="Views\" />
     <Folder Include="Views\Home\" />

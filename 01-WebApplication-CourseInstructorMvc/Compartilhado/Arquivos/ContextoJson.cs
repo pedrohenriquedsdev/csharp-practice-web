@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using _01_WebApplication_CourseInstructorMvc.ModuloCurso;
 using _01_WebApplication_CourseInstructorMvc.ModuloInstrutor;
 
 namespace _01_WebApplication_CourseInstructorMvc.Compartilhado.Arquivos;
@@ -7,6 +8,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Compartilhado.Arquivos;
 public sealed class ContextoJson
 {
     public List<Instrutor> Instrutores { get; set; } = new List<Instrutor>();
+    public List<Curso> Cursos { get; set; } = new List<Curso>();
 
     private readonly string caminhoArquivo;
 
@@ -52,5 +54,6 @@ public sealed class ContextoJson
             return;
 
         Instrutores = contextoSalvo.Instrutores;
+        Cursos = contextoSalvo.Cursos;
     }
 }
