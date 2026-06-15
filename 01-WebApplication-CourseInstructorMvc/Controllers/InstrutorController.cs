@@ -72,9 +72,13 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(string nome, string email, string telefone)
+        public ActionResult Cadastrar(CadastrarInstrutorViewModel cadastrarVm)
         {
-            Instrutor novoInstrutor = new Instrutor(nome, email, telefone);
+            Instrutor novoInstrutor = new Instrutor(
+            cadastrarVm.Nome,
+            cadastrarVm.Email,
+            cadastrarVm.Telefone
+        );
 
             repositorioInstrutor.Cadastrar(novoInstrutor);
 
@@ -90,15 +94,26 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
             if (instrutor == null)
                 return RedirectToAction(nameof(Listar));
 
-            return View(instrutor);
+            EditarInstrutorViewModel editarVm = new EditarInstrutorViewModel(
+                id,
+                instrutor.Nome,
+                instrutor.Email,
+                instrutor.Telefone
+            );
+
+            return View(editarVm);
         }
 
         [HttpPost]
-        public ActionResult Editar(string id, string nome, string email, string telefone)
+        public ActionResult Editar(EditarInstrutorViewModel editarVm)
         {
-            Instrutor instrutorAtualizado = new Instrutor(nome, email, telefone);
+            Instrutor instrutorAtualizado = new Instrutor(
+                editarVm.Nome,
+                editarVm.Email,
+                editarVm.Telefone
+            );
 
-            repositorioInstrutor.Editar(id, instrutorAtualizado);
+            repositorioInstrutor.Editar(editarVm.Id, instrutorAtualizado);
 
             return RedirectToAction(nameof(Listar));
         }
@@ -112,14 +127,21 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
             if (instrutor == null)
                 return RedirectToAction(nameof(Listar));
 
+            ExcluirInstrutorViewModel excluirVm = new ExcluirInstrutorViewModel(
+                id,
+                instrutor.Nome,
+                instrutor.Email,
+                instrutor.Telefone
+            );
+
             return View(instrutor);
         }
 
         [HttpPost]
         [ActionName("Excluir")]
-        public ActionResult ExcluirConfirmado(string id)
+        public ActionResult ExcluirConfirmado(ExcluirInstrutorViewModel excluirVm)
         {
-            Instrutor? instrutor = repositorioInstrutor.SelecionarPorId(id);
+            Instrutor? instrutor = repositorioInstrutor.SelecionarPorId(excluirVm.Id);
 
             if (instrutor == null)
                 return RedirectToAction(nameof(Listar));
