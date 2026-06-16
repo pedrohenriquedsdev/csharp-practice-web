@@ -70,6 +70,46 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
             return RedirectToAction(nameof(Listar));
         }
 
+        [HttpGet]
+        public ActionResult Editar(string id)
+        {
+            Curso? curso = repositorioCurso.SelecionarPorId(id);
+
+            if (curso == null)
+                return RedirectToAction(nameof(Listar));
+
+            EditarCursoViewModel editarVm = new EditarCursoViewModel(
+                id,
+                curso.Nome,
+                curso.Valor,
+                curso.DataInicio,
+                curso.Instrutor.Id
+            );
+
+            ViewBag.Instrutores = CarregarInstrutores();
+
+            return View(editarVm);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(EditarCursoViewModel editarVm)
+        {
+            Instrutor? instrutor = repositorioInstrutor.SelecionarPorId(editarVm.InstrutorId);
+
+            if (instrutor == null)
+                return RedirectToAction(nameof(Listar));
+
+            Curso cursoAtualizado = new Curso(
+                editarVm.Nome,
+                editarVm.Valor,
+                editarVm.DataInicio,
+                instrutor
+            );
+
+            repositorioCurso.Editar(editarVm.Id, cursoAtualizado);
+
+            return RedirectToAction(nameof(Listar));
+        }
 
         // Busca os instrutores cadastrados e converte cada entidade em uma ViewModel para uso na View.
         private List<ListarInstrutoresViewModel> CarregarInstrutores()
