@@ -111,6 +111,37 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
             return RedirectToAction(nameof(Listar));
         }
 
+        [HttpGet]
+        public ActionResult Excluir(string id)
+        {
+            Curso? curso = repositorioCurso.SelecionarPorId(id);
+
+            if (curso == null)
+                return RedirectToAction(nameof(Listar));
+
+            ExcluirCursoViewModel excluirVm = new ExcluirCursoViewModel(
+                id,
+                curso.Nome,
+                curso.Valor,
+                curso.DataInicio,
+                curso.Instrutor.Nome
+            );
+
+            return View(excluirVm);
+        }
+
+        [HttpPost]
+        [ActionName("Excluir")]
+        public ActionResult ExcluirConfirmado(ExcluirCursoViewModel excluirVm)
+        {
+            Curso? curso = repositorioCurso.SelecionarPorId(excluirVm.Id);
+
+            if (curso != null)
+                repositorioCurso.Excluir(curso);
+
+            return RedirectToAction(nameof(Listar));
+        }
+
         // Busca os instrutores cadastrados e converte cada entidade em uma ViewModel para uso na View.
         private List<ListarInstrutoresViewModel> CarregarInstrutores()
         {

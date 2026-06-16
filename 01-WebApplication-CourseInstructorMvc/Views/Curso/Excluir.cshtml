@@ -1,5 +1,41 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using _01_WebApplication_CourseInstructorMvc.Models
 @{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Exclusão de Curso";
 }
+
+@model ExcluirCursoViewModel
+
+<form class="formulario" action="/Curso/Excluir/@Model.Id" method="post">
+
+    <p class="formulario-alerta">Deseja realmente excluir este curso?</p>
+
+    <div class="formulario-campo">
+        <label>Nome</label>
+        <br>
+        <input type="text" name="Nome" value="@Model.Nome" disabled>
+    </div>
+
+    <div class="formulario-campo">
+        <label>Valor</label>
+        <br>
+        <input type="text" name="Valor" value="@Model.Valor.ToString("C2")" disabled>
+    </div>
+
+    <div class="formulario-campo">
+        <label>Data de Início</label>
+        <br>
+        <input type="text" name="DataInicio" value="@Model.DataInicio.ToString("dd/MM/yyyy")" disabled>
+    </div>
+
+    <div class="formulario-campo">
+        <label>Instrutor</label>
+        <br>
+        <input type="text" name="Instrutor" value="@Model.Instrutor" disabled>
+    </div>
+
+    <div class="formulario-acoes">
+        <a href="/Curso/Listar">Voltar</a>
+        <button type="submit">Confirmar</button>
+    </div>
+</form>
