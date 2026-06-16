@@ -9,7 +9,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
     public class InstrutorController : Controller
     {
         // 
-        private readonly IRepositorio<Curso> repositorioInstrutor;
+        private readonly IRepositorio<Instrutor> repositorioInstrutor;
 
         public InstrutorController()
         {
@@ -23,11 +23,11 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         [HttpGet]
         public ActionResult Listar()
         {
-            List<Curso> instrutores = repositorioInstrutor.SelecionarTodos();
+            List<Instrutor> instrutores = repositorioInstrutor.SelecionarTodos();
 
             List<ListarInstrutoresViewModel> listarVms = new List<ListarInstrutoresViewModel>();
 
-            foreach (Curso i in instrutores)
+            foreach (Instrutor i in instrutores)
             {
                 ListarInstrutoresViewModel viewModel = new ListarInstrutoresViewModel(
                     i.Id,
@@ -52,7 +52,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         [HttpPost]
         public ActionResult Cadastrar(CadastrarInstrutorViewModel cadastrarVm)
         {
-            Curso novoInstrutor = new Curso(
+            Instrutor novoInstrutor = new Instrutor(
             cadastrarVm.Nome,
             cadastrarVm.Email,
             cadastrarVm.Telefone
@@ -67,7 +67,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         [HttpGet]
         public ActionResult Editar(string id)
         {
-            Curso? instrutor = repositorioInstrutor.SelecionarPorId(id);
+            Instrutor? instrutor = repositorioInstrutor.SelecionarPorId(id);
 
             if (instrutor == null)
                 return RedirectToAction(nameof(Listar));
@@ -85,7 +85,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         [HttpPost]
         public ActionResult Editar(EditarInstrutorViewModel editarVm)
         {
-            Curso instrutorAtualizado = new Curso(
+            Instrutor instrutorAtualizado = new Instrutor(
                 editarVm.Nome,
                 editarVm.Email,
                 editarVm.Telefone
@@ -100,7 +100,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         [HttpGet]
         public ActionResult Excluir(string id)
         {
-            Curso? instrutor = repositorioInstrutor.SelecionarPorId(id);
+            Instrutor? instrutor = repositorioInstrutor.SelecionarPorId(id);
 
             if (instrutor == null)
                 return RedirectToAction(nameof(Listar));
@@ -119,7 +119,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         [ActionName("Excluir")]
         public ActionResult ExcluirConfirmado(ExcluirInstrutorViewModel excluirVm)
         {
-            Curso? instrutor = repositorioInstrutor.SelecionarPorId(excluirVm.Id);
+            Instrutor? instrutor = repositorioInstrutor.SelecionarPorId(excluirVm.Id);
 
             if (instrutor == null)
                 return RedirectToAction(nameof(Listar));

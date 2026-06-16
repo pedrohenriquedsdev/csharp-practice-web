@@ -11,6 +11,8 @@ public class Curso : EntidadeBase<Curso>
 
     public DateTime DataInicio { get; set; }
 
+    public Instrutor? Instrutor;
+
     public override void AtualizarDados(Curso entidadeAtualizada)
     {
         Nome = entidadeAtualizada.Nome;
