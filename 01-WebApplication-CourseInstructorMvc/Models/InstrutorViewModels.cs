@@ -1,5 +1,3 @@
-using System;
-
 namespace _01_WebApplication_CourseInstructorMvc.Models;
 
 public record ListarInstrutoresViewModel(

@@ -1,10 +1,11 @@
-﻿@using _01_WebApplication_CourseInstructorMvc.ModuloInstrutor
+﻿@using _01_WebApplication_CourseInstructorMvc.Models
+@using _01_WebApplication_CourseInstructorMvc.ModuloInstrutor
 @{
     Layout = "_Layout";
     ViewBag.Titulo = "Exclusão de Instrutor";
 }
 
-@model Instrutor;
+@model ExcluirInstrutorViewModel;
 
 <form class="formulario" action="/Instrutor/Excluir/@Model.Id" method="post">
 

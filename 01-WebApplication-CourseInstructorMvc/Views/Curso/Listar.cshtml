@@ -1,0 +1,39 @@
+﻿@using _01_WebApplication_CourseInstructorMvc.Models
+
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Listagem de Cursos";
+}
+
+@model List<ListarCursosViewModel>
+
+<a class="btn-cadastrar" href="/Curso/Cadastrar">Cadastrar Novo</a>
+
+<table class="registros">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Valor</th>
+            <th>Data de Início</th>
+            <th>Instrutor</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ListarCursosViewModel c in Model)
+        {
+            <tr>
+                <td>@c.Id</td>
+                <td>@c.Nome</td>
+                <td>@c.Valor.ToString("C2")</td>
+                <td>@c.DataInicio.ToShortDateString()</td>
+                <td>@c.Instrutor</td>
+                <td>
+                    <a href="/Curso/Editar/@c.Id">Editar</a>
+                    <a href="/Curso/Excluir/@c.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

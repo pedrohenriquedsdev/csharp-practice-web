@@ -1,0 +1,40 @@
+﻿@using _01_WebApplication_CourseInstructorMvc.Models
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Cadastro de Curso";
+
+    List<ListarInstrutoresViewModel> instrutores = ViewBag.Instrutores;
+}
+
+<form class="formulario" action="/Curso/Cadastrar" method="post">
+
+    <div class="formulario-campo">
+        <label>Nome</label>
+        <input type="text" name="Nome">
+    </div>
+
+    <div class="formulario-campo">
+        <label>Valor</label>
+        <input type="number" name="Valor" min="0.01" step="0.01">
+    </div>
+
+    <div class="formulario-campo">
+        <label>Data de Início</label>
+        <input type="date" name="DataInicio">
+    </div>
+
+    <div class="formulario-campo">
+        <label>Instrutor</label>
+        <select name="InstrutorId">
+            @foreach (ListarInstrutoresViewModel i in instrutores)
+            {
+                <option value="@i.Id">@i.Nome</option>
+            }
+        </select>
+    </div>
+
+    <div class="formulario-acoes">
+        <a href="/Curso/Listar">Voltar</a>
+        <button type="submit">Confirmar</button>
+    </div>
+</form>
