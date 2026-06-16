@@ -78,6 +78,9 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
             if (curso == null)
                 return RedirectToAction(nameof(Listar));
 
+            if (curso.Instrutor == null)
+                return RedirectToAction(nameof(Listar));
+
             EditarCursoViewModel editarVm = new EditarCursoViewModel(
                 id,
                 curso.Nome,
@@ -124,7 +127,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
                 curso.Nome,
                 curso.Valor,
                 curso.DataInicio,
-                curso.Instrutor.Nome
+                curso.Instrutor?.Nome ?? "Sem instrutor"
             );
 
             return View(excluirVm);
