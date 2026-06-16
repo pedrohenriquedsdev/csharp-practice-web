@@ -15,6 +15,7 @@
     <Folder Include="ModuloCurso\" />
     <Folder Include="ModuloInstrutor\" />
     <Folder Include="Views\" />
+    <Folder Include="Views\Curso\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Instrutor\" />
     <Folder Include="Views\Shared\" />

@@ -7,8 +7,8 @@ namespace _01_WebApplication_CourseInstructorMvc.Compartilhado.Arquivos;
 
 public sealed class ContextoJson
 {
-    public List<Instrutor> Instrutores { get; set; } = new List<Instrutor>();
-    public List<Curso> Cursos { get; set; } = new List<Curso>();
+    public List<ModuloInstrutor.Curso> Instrutores { get; set; } = new List<ModuloInstrutor.Curso>();
+    public List<ModuloCurso.Curso> Cursos { get; set; } = new List<ModuloCurso.Curso>();
 
     private readonly string caminhoArquivo;
 

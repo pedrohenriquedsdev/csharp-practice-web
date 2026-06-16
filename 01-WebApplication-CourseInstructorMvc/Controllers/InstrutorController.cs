@@ -9,47 +9,25 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
     public class InstrutorController : Controller
     {
         // 
-        private readonly IRepositorio<Instrutor> repositorioInstrutor;
+        private readonly IRepositorio<Curso> repositorioInstrutor;
 
         public InstrutorController()
         {
-            // Aqui estamos criando manualmente a estrutura de persistência da aplicação.
-            //
-            // O ContextoJson representa o "banco de dados em arquivo" da aplicação.
-            // Ele contém as listas que serão salvas e carregadas do arquivo dados.json,
-            // como, por exemplo, a lista de Instrutores.
-            //
-            // Como este projeto ainda não está usando Injeção de Dependência,
-            // o próprio Controller precisa criar o ContextoJson manualmente.
             ContextoJson contexto = new ContextoJson();
 
-            // Após criar o contexto, carregamos os dados já salvos no arquivo JSON.
-            // Se o arquivo dados.json existir, os registros serão lidos e colocados
-            // novamente dentro das listas do contexto, como contexto.Instrutores.
             contexto.Carregar();
 
-            // Aqui criamos o repositório de Instrutores e entregamos o contexto para ele.
-            //
-            // O RepositorioInstrutorEmArquivo recebe esse contexto no construtor
-            // e repassa para a classe base RepositorioBaseEmArquivo.
-            //
-            // Dentro da base, o método CarregarRegistros() é chamado.
-            // No caso do repositório de Instrutores, esse método retorna contexto.Instrutores.
-            //
-            // Com isso, o repositório passa a manipular a lista de instrutores
-            // que está dentro do ContextoJson. Quando cadastrar, editar ou excluir,
-            // ele altera essa lista e depois chama contexto.Salvar() para persistir no JSON.
             repositorioInstrutor = new RepositorioInstrutorEmArquivo(contexto);
         }
 
         [HttpGet]
         public ActionResult Listar()
         {
-            List<Instrutor> instrutores = repositorioInstrutor.SelecionarTodos();
+            List<Curso> instrutores = repositorioInstrutor.SelecionarTodos();
 
             List<ListarInstrutoresViewModel> listarVms = new List<ListarInstrutoresViewModel>();
 
-            foreach (Instrutor i in instrutores)
+            foreach (Curso i in instrutores)
             {
                 ListarInstrutoresViewModel viewModel = new ListarInstrutoresViewModel(
                     i.Id,
@@ -74,7 +52,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         [HttpPost]
         public ActionResult Cadastrar(CadastrarInstrutorViewModel cadastrarVm)
         {
-            Instrutor novoInstrutor = new Instrutor(
+            Curso novoInstrutor = new Curso(
             cadastrarVm.Nome,
             cadastrarVm.Email,
             cadastrarVm.Telefone
@@ -89,7 +67,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         [HttpGet]
         public ActionResult Editar(string id)
         {
-            Instrutor? instrutor = repositorioInstrutor.SelecionarPorId(id);
+            Curso? instrutor = repositorioInstrutor.SelecionarPorId(id);
 
             if (instrutor == null)
                 return RedirectToAction(nameof(Listar));
@@ -107,7 +85,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         [HttpPost]
         public ActionResult Editar(EditarInstrutorViewModel editarVm)
         {
-            Instrutor instrutorAtualizado = new Instrutor(
+            Curso instrutorAtualizado = new Curso(
                 editarVm.Nome,
                 editarVm.Email,
                 editarVm.Telefone
@@ -122,7 +100,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         [HttpGet]
         public ActionResult Excluir(string id)
         {
-            Instrutor? instrutor = repositorioInstrutor.SelecionarPorId(id);
+            Curso? instrutor = repositorioInstrutor.SelecionarPorId(id);
 
             if (instrutor == null)
                 return RedirectToAction(nameof(Listar));
@@ -141,7 +119,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         [ActionName("Excluir")]
         public ActionResult ExcluirConfirmado(ExcluirInstrutorViewModel excluirVm)
         {
-            Instrutor? instrutor = repositorioInstrutor.SelecionarPorId(excluirVm.Id);
+            Curso? instrutor = repositorioInstrutor.SelecionarPorId(excluirVm.Id);
 
             if (instrutor == null)
                 return RedirectToAction(nameof(Listar));

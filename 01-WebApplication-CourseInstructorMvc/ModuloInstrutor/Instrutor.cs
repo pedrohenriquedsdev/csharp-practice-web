@@ -2,15 +2,15 @@ using _01_WebApplication_CourseInstructorMvc.Compartilhado;
 
 namespace _01_WebApplication_CourseInstructorMvc.ModuloInstrutor;
 
-public class Instrutor : EntidadeBase<Instrutor>
+public class Curso : EntidadeBase<Curso>
 {
     public string Nome { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public string Telefone { get; set; } = string.Empty;
 
-    public Instrutor() { }
+    public Curso() { }
 
-    public Instrutor(string nome, string email, string telefone)
+    public Curso(string nome, string email, string telefone)
     {
         Nome = nome;
         Email = email;
@@ -33,7 +33,7 @@ public class Instrutor : EntidadeBase<Instrutor>
         return erros;
     }
 
-    public override void AtualizarDados(Instrutor entidadeAtualizada)
+    public override void AtualizarDados(Curso entidadeAtualizada)
     {
         Nome = entidadeAtualizada.Nome;
         Email = entidadeAtualizada.Email;

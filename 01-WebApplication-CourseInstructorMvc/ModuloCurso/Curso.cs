@@ -11,14 +11,11 @@ public class Curso : EntidadeBase<Curso>
 
     public DateTime DataInicio { get; set; }
 
-    public required Instrutor Instrutor { get; set; }
-
     public override void AtualizarDados(Curso entidadeAtualizada)
     {
         Nome = entidadeAtualizada.Nome;
         Valor = entidadeAtualizada.Valor;
         DataInicio = entidadeAtualizada.DataInicio;
-        Instrutor = entidadeAtualizada.Instrutor;
     }
 
     public override List<string> Validar()
@@ -35,9 +32,6 @@ public class Curso : EntidadeBase<Curso>
 
         if (DataInicio == DateTime.MinValue)
             erros.Add("O campo \"Data de Início\" é obrigatório.");
-
-        if (Instrutor == null)
-            erros.Add("O campo \"Instrutor\" é obrigatório.");
 
         return erros;
     }
