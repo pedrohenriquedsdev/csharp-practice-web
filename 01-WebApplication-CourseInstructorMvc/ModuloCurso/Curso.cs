@@ -5,13 +5,23 @@ namespace _01_WebApplication_CourseInstructorMvc.ModuloCurso;
 
 public class Curso : EntidadeBase<Curso>
 {
-    public required string Nome { get; set; }
+    public string Nome { get; set; } = string.Empty;
 
     public decimal Valor { get; set; }
 
     public DateTime DataInicio { get; set; }
 
-    public Instrutor? Instrutor;
+    public Instrutor Instrutor { get; set; } = null!;
+
+    public Curso() { }
+
+    public Curso(string nome, decimal valor, DateTime dataInicio, Instrutor instrutor)
+    {
+        Nome = nome;
+        Valor = valor;
+        DataInicio = dataInicio;
+        Instrutor = instrutor;
+    }
 
     public override void AtualizarDados(Curso entidadeAtualizada)
     {
@@ -34,6 +44,9 @@ public class Curso : EntidadeBase<Curso>
 
         if (DataInicio == DateTime.MinValue)
             erros.Add("O campo \"Data de Início\" é obrigatório.");
+
+        if (Instrutor == null)
+            erros.Add("O campo \"Instrutor\" deve ser preenchido.");
 
         return erros;
     }

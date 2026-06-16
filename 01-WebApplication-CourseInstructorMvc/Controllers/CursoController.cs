@@ -33,7 +33,7 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
                     c.Nome,
                     c.Valor,
                     c.DataInicio,
-                    c.Instrutor.Nome //isso vem como string, por isso definimos como str no VM
+                   c.Instrutor?.Nome ?? "Sem instrutor" //isso vem como string, por isso definimos como str no VM
                 );
 
                 listarVms.Add(viewModel);
@@ -42,5 +42,56 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
             return View(listarVms);
         }
 
+        [HttpGet]
+        public ActionResult Cadastrar()
+        {
+            ViewBag.Instrutores = CarregarInstrutores();
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Cadastrar(CadastrarCursoViewModel cadastrarVm)
+        {
+            Instrutor? instrutor = repositorioInstrutor.SelecionarPorId(cadastrarVm.InstrutorId);
+
+            if (instrutor == null)
+                return RedirectToAction(nameof(Listar));
+
+            Curso novoCurso = new Curso(
+                cadastrarVm.Nome,
+                cadastrarVm.Valor,
+                cadastrarVm.DataInicio,
+                instrutor
+            );
+
+            repositorioCurso.Cadastrar(novoCurso);
+
+            return RedirectToAction(nameof(Listar));
+        }
+
+
+        // Busca os instrutores cadastrados e converte cada entidade em uma ViewModel para uso na View.
+        private List<ListarInstrutoresViewModel> CarregarInstrutores()
+        {
+            List<Instrutor> instrutores = repositorioInstrutor.SelecionarTodos();
+
+            List<ListarInstrutoresViewModel> listarVms = new List<ListarInstrutoresViewModel>();
+
+            foreach (Instrutor i in instrutores)
+            {
+                // mapear objeto por objeto para viewModels
+                ListarInstrutoresViewModel viewModel = new ListarInstrutoresViewModel(
+                    i.Id,
+                    i.Nome,
+                    i.Email,
+                    i.Telefone
+                );
+
+                listarVms.Add(viewModel);
+            }
+
+            return listarVms;
+        }
     }
 }
