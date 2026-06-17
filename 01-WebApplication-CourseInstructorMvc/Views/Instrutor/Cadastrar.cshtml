@@ -3,28 +3,30 @@
     ViewBag.Titulo = "Cadastro de Instrutores";
 }
 
-<form class="formulario" action="/Instrutor/Cadastrar" method="post">
+@model CadastrarInstrutorViewModel;
+
+<form class="formulario" asp-action="Cadastrar" method="post"> @* mapeia a pasta do controller e identifica quem ele é
+    *@
 
     <div class="formulario-campo">
-        <label>Nome</label>
-        <br>
-        <input type="text" name="Nome">
-    </div>
-
-    <div class="formulario-campo">
-        <label>Email</label>
-        <br>
-        <input type="email" name="Email">
+        <label asp-for="Nome">Nome</label> @* Legenda do campo Nome *@
+        <input asp-for="Nome" type="text"> @* Campo que preenche Nome no ViewModel *@
+        <span asp-validation-for="Nome" class="formulario-validacao-campo"></span> @* Erro de validação do campo Nome *@
     </div>
 
     <div class="formulario-campo">
-        <label>Telefone</label>
-        <br>
-        <input type="text" name="Telefone">
-    </div>
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" type="email">
+        <span asp-validation-for="Email" class="formulario-validacao-campo"></span>
 
-    <div class="formulario-acoes">
-        <a href="/Instrutor/Listar">Voltar</a>
-        <button type="submit">Confirmar</button>
-    </div>
-</form>
+        <div class="formulario-campo">
+            <label asp-for="Telefone">Telefone</label>
+            <input asp-for="Telefone" type="text">
+            <span asp-validation-for="Telefone" class="formulario-validacao-campo"></span>
+        </div>
+
+        <div class="formulario-acoes">
+            <a asp-action="Listar">Voltar</a>
+            <button type="submit">Confirmar</button>
+        </div>
+    </form>

@@ -27,8 +27,8 @@
                 <td>@i.Email</td>
                 <td>@i.Telefone</td>
                 <td>
-                    <a href="/Instrutor/Editar/@i.Id">Editar</a>
-                    <a href="/Instrutor/Excluir/@i.Id">Excluir</a>
+                    <a asp-action="Editar" asp-route-id="@i.Id">Editar</a>
+                    <a asp-action="Excluir" asp-route-id="@i.Id">Excluir</a>
                 </td>
             </tr>
         }
