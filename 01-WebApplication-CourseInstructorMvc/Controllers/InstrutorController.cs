@@ -46,12 +46,20 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            return View();
+            CadastrarInstrutorViewModel cadastrarVm = new CadastrarInstrutorViewModel(
+            string.Empty,
+            string.Empty,
+            string.Empty
+        );
+            return View(cadastrarVm);
         }
 
         [HttpPost]
         public ActionResult Cadastrar(CadastrarInstrutorViewModel cadastrarVm)
         {
+            if (!ModelState.IsValid)
+                return View(cadastrarVm);
+
             Instrutor novoInstrutor = new Instrutor(
             cadastrarVm.Nome,
             cadastrarVm.Email,
@@ -85,6 +93,9 @@ namespace _01_WebApplication_CourseInstructorMvc.Controllers
         [HttpPost]
         public ActionResult Editar(EditarInstrutorViewModel editarVm)
         {
+            if (!ModelState.IsValid)
+                return View(editarVm);
+
             Instrutor instrutorAtualizado = new Instrutor(
                 editarVm.Nome,
                 editarVm.Email,
