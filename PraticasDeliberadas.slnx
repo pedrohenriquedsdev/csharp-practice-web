@@ -2,4 +2,5 @@
   <Project Path="01-WebApplication-CourseInstructorMvc/01-WebApplication-CourseInstructorMvc.csproj" />
   <Project Path="02-WebApplication-CommunityWorkshopMvc.WebApp/02-WebApplication-CommunityWorkshopMvc.WebApp.csproj" />
   <Project Path="03-WebApplication-CommunityCostumeManagementMvc.WebApp/03-WebApplication-CommunityCostumeManagementMvc.WebApp.csproj" />
+  <Project Path="04-WebApplication-SchoolExpeditionManagementMvc.WebApp/04-WebApplication-SchoolExpeditionManagementMvc.WebApp.csproj" />
 </Solution>
