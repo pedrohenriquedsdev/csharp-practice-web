@@ -3,4 +3,5 @@
   <Project Path="02-WebApplication-CommunityWorkshopMvc.WebApp/02-WebApplication-CommunityWorkshopMvc.WebApp.csproj" />
   <Project Path="03-WebApplication-CommunityCostumeManagementMvc.WebApp/03-WebApplication-CommunityCostumeManagementMvc.WebApp.csproj" />
   <Project Path="04-WebApplication-SchoolExpeditionManagementMvc.WebApp/04-WebApplication-SchoolExpeditionManagementMvc.WebApp.csproj" />
+  <Project Path="05-WebApplication-CreativeStudioInventoryMvc.WebApp/05-WebApplication-CreativeStudioInventoryMvc.WebApp.csproj" />
 </Solution>
