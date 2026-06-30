@@ -11,6 +11,22 @@ public class Oficina : EntidadeBase<Oficina>
     public decimal ValorContribuicao { get; set; }
     public Facilitador Facilitador { get; set; } = null!; // estabelece o relacionamento entre as duas entidades.
 
+    public Oficina() { }
+
+    public Oficina(
+        string titulo,
+        int cargaHoraria,
+        int vagas,
+        decimal valorContribuicao,
+        Facilitador facilitador) : this()
+    {
+        Titulo = titulo;
+        CargaHoraria = cargaHoraria;
+        Vagas = vagas;
+        ValorContribuicao = valorContribuicao;
+        Facilitador = facilitador;
+    }
+
     public override void AtualizarDados(Oficina entidadeAtualizada)
     {
         Titulo = entidadeAtualizada.Titulo;

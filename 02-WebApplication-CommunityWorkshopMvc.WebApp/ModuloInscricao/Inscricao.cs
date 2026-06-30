@@ -11,6 +11,16 @@ public class Inscricao : EntidadeBase<Inscricao>
     public DateTime DataInscricao { get; set; } = DateTime.Now;
     public bool EstaCancelada { get; set; }
 
+    public Inscricao() { }
+
+    public Inscricao(
+        Oficina oficina,
+        Participante participante) : this()
+    {
+        Oficina = oficina;
+        Participante = participante;
+    }
+
     public override void AtualizarDados(Inscricao entidadeAtualizada)
     {
         Oficina = entidadeAtualizada.Oficina;

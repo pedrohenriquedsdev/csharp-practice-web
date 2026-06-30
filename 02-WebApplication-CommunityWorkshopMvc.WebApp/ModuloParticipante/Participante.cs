@@ -8,6 +8,15 @@ public class Participante : EntidadeBase<Participante>
     public string Email { get; set; } = string.Empty;
     public string Telefone { get; set; } = string.Empty;
 
+    public Participante() { }
+
+    public Participante(string nome, string email, string telefone) : this()
+    {
+        Nome = nome;
+        Email = email;
+        Telefone = telefone;
+    }
+
     public override void AtualizarDados(Participante entidadeAtualizada)
     {
         Nome = entidadeAtualizada.Nome;
