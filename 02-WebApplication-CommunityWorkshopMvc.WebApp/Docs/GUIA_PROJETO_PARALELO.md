@@ -256,13 +256,13 @@ Crie, para cada módulo, `ListarXViewModel`, `CadastrarXViewModel`, `EditarXView
 
 Faça uma etapa por vez, com uma pequena demonstração manual no fim. Só avance quando conseguir explicar o fluxo em voz alta.
 
-### Etapa 0 — Preparação e rota
+## ~~Etapa 0 — Preparação e rota~~
 
-**Objetivo:** criar solução MVC, `Program.cs`, layout, página inicial e links de navegação. **Pratica:** pipeline, `AddControllersWithViews`, `UseStaticFiles`, `UseRouting`, rota padrão, Razor e layout. **Resultado esperado:** `/` abre Home e os links geram URLs pelo Tag Helper.
+**Objetivo:** ~~criar solução MVC, `Program.cs`, layout, página inicial e links de navegação.~~ **Pratica:** ~~pipeline, `AddControllersWithViews`, `UseStaticFiles`, `UseRouting`, rota padrão, Razor e layout.~~ **Resultado esperado:** ~~`/` abre Home e os links geram URLs pelo Tag Helper.~~
 
-### Etapa 1 — Domínio e contratos
+## ~~Etapa 1 — Domínio e contratos~~
 
-**Objetivo:** criar `EntidadeBase<T>`, `Facilitador`, `Oficina`, `Participante`, `Inscricao` e seus métodos `AtualizarDados`. **Pratica:** POO, construtores, propriedades, composição e relações. **Resultado esperado:** o código representa o negócio sem depender de controller/view.
+**Objetivo:** ~~criar `EntidadeBase<T>`, `Facilitador`, `Oficina`, `Participante`, `Inscricao` e seus métodos `AtualizarDados`.~~ **Pratica:** ~~POO, construtores, propriedades, composição e relações.~~ **Resultado esperado:** ~~o código representa o negócio sem depender de controller/view.~~
 
 ### Etapa 2 — Persistência JSON e repositórios
 

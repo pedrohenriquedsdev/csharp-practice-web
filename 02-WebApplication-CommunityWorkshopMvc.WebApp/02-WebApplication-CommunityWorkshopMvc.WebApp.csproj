@@ -7,4 +7,11 @@
     <RootNamespace>_02_WebApplication_CommunityWorkshopMvc.WebApp</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="ModuloFacilitador\" />
+    <Folder Include="ModuloInscricao\" />
+    <Folder Include="ModuloOficina\" />
+    <Folder Include="ModuloParticipante\" />
+  </ItemGroup>
+
 </Project>
