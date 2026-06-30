@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="ModuloFacilitador\" />
+    <Folder Include="ModuloInscricao\" />
     <Folder Include="ModuloOficina\" />
     <Folder Include="ModuloParticipante\" />
   </ItemGroup>
