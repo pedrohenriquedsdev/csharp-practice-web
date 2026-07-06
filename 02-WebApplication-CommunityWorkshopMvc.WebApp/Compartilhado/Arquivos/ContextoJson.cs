@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using _02_WebApplication_CommunityWorkshopMvc.WebApp.ModuloFacilitador;
 using _02_WebApplication_CommunityWorkshopMvc.WebApp.ModuloInscricao;
 using _02_WebApplication_CommunityWorkshopMvc.WebApp.ModuloOficina;
 using _02_WebApplication_CommunityWorkshopMvc.WebApp.ModuloParticipante;
@@ -9,6 +10,7 @@ namespace _02_WebApplication_CommunityWorkshopMvc.WebApp.Compartilhado.Arquivos;
 public sealed class ContextoJson
 {
     public List<Participante> Participantes { get; set; } = new List<Participante>();
+    public List<Facilitador> Facilitadores { get; set; } = new List<Facilitador>();
     public List<Oficina> Oficinas { get; set; } = new List<Oficina>();
     public List<Inscricao> Inscricoes { get; set; } = new List<Inscricao>();
 
