@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Listagem de Facilitadores";
+}
+
+@model List<ListarFacilitadorViewModel>;
+
+<a class="btn-cadastrar" asp-action="Cadastrar">Cadastrar Novo</a>
+
+@if (Model.Count == 0)
+{
+    <p class="formulario-alerta">Nenhum facilitador cadastrado.</p>
+}
+else
+{
+    <table class="registros">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Especialidade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ListarFacilitadorViewModel f in Model)
+            {
+                <tr>
+                    <td>@f.Id</td>
+                    <td>@f.Nome</td>
+                    <td>@f.Email</td>
+                    <td>@f.Especialidade</td>
+                    <td>
+                        <a asp-action="Editar" asp-route-id="@f.Id">Editar</a>
+                        <a asp-action="Excluir" asp-route-id="@f.Id">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
