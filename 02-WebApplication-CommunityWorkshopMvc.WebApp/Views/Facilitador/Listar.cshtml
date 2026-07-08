@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "_Layout";
-    ViewBag.Titulo = "Listagem de Fabricantes";
+    ViewBag.Titulo = "Listagem de Facilitadores";
 }
 
 @model List<ListarFacilitadorViewModel>;
@@ -9,7 +9,7 @@
 
 @if (Model.Count == 0)
 {
-    <p class="formulario-alerta">Nenhum fabricante cadastrado.</p>
+    <p class="formulario-alerta">Nenhum facilitador cadastrado.</p>
 }
 else
 {
@@ -19,7 +19,7 @@ else
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
-                <th>Telefone</th>
+                <th>Especialidade</th>
                 <th>Ações</th>
             </tr>
         </thead>

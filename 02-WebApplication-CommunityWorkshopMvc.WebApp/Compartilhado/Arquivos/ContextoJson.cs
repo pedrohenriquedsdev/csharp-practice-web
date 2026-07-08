@@ -55,6 +55,7 @@ public sealed class ContextoJson
         if (contextoSalvo == null)
             return;
 
+        Facilitadores = contextoSalvo.Facilitadores;
         Participantes = contextoSalvo.Participantes;
         Oficinas = contextoSalvo.Oficinas;
         Inscricoes = contextoSalvo.Inscricoes;

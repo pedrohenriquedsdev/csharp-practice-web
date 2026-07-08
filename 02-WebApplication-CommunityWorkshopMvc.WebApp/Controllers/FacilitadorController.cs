@@ -41,5 +41,34 @@ namespace _02_WebApplication_CommunityWorkshopMvc.WebApp.Controllers
 
             return View(listarVms);
         }
+
+        [HttpGet]
+        public ActionResult Cadastrar()
+        {
+            CadastrarFacilitadorViewModel cadastrarVm = new CadastrarFacilitadorViewModel(
+                string.Empty,
+                string.Empty,
+                string.Empty
+            );
+
+            return View(cadastrarVm);
+        }
+
+        [HttpPost]
+        public ActionResult Cadastrar(CadastrarFacilitadorViewModel cadastrarVm)
+        {
+            if (!ModelState.IsValid)
+                return View(cadastrarVm);
+
+            Facilitador novoFacilitador = new Facilitador(
+                cadastrarVm.Nome,
+                cadastrarVm.Email,
+                cadastrarVm.Especialidade
+            );
+
+            repositorioFacilitador.Cadastrar(novoFacilitador);
+
+            return RedirectToAction(nameof(Listar));
+        }
     }
 }
