@@ -70,5 +70,40 @@ namespace _02_WebApplication_CommunityWorkshopMvc.WebApp.Controllers
 
             return RedirectToAction(nameof(Listar));
         }
+
+        [HttpGet]
+        public ActionResult Editar(string id)
+        {
+            Facilitador? facilitador = repositorioFacilitador.SelecionarPorId(id);
+
+            if (facilitador == null)
+                return RedirectToAction(nameof(Listar));
+
+            EditarFacilitadorViewModel editarVm = new EditarFacilitadorViewModel(
+                id,
+                facilitador.Nome,
+                facilitador.Email,
+                facilitador.Especialidade
+            );
+
+            return View(editarVm);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(EditarFacilitadorViewModel editarVm)
+        {
+            if (!ModelState.IsValid)
+                return View(editarVm);
+
+            Facilitador facilitadorAtualizado = new Facilitador(
+                editarVm.Nome,
+                editarVm.Email,
+                editarVm.Especialidade
+            );
+
+            repositorioFacilitador.Editar(editarVm.Id, facilitadorAtualizado);
+
+            return RedirectToAction(nameof(Listar));
+        }
     }
 }

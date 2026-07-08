@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Edição de Facilitador";
+}
+
+@model EditarFacilitadorViewModel;
+
+<form class="formulario" asp-action="Editar" asp-route-id="@Model.Id" method="post">
+    <input asp-for="Id" type="hidden">
+
+    <div class="formulario-campo">
+        <label asp-for="Nome">Nome</label>
+        <input asp-for="Nome" type="text">
+        <span asp-validation-for="Nome" class="formulario-validacao-campo"></span>
+    </div>
+
+    <div class="formulario-campo">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" type="email">
+        <span asp-validation-for="Email" class="formulario-validacao-campo"></span>
+    </div>
+
+    <div class="formulario-campo">
+        <label asp-for="Especialidade">Especialidade</label>
+        <input asp-for="Especialidade" type="text">
+        <span asp-validation-for="Especialidade" class="formulario-validacao-campo"></span>
+    </div>
+
+    <div class="formulario-acoes">
+        <a asp-action="Listar">Voltar</a>
+        <button type="submit">Confirmar</button>
+    </div>
+</form>
