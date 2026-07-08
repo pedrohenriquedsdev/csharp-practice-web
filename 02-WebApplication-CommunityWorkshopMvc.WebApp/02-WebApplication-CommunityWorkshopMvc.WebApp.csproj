@@ -13,6 +13,7 @@
     <Folder Include="ModuloInscricao\" />
     <Folder Include="ModuloOficina\" />
     <Folder Include="ModuloParticipante\" />
+    <Folder Include="Views\Facilitador\" />
   </ItemGroup>
 
 </Project>
