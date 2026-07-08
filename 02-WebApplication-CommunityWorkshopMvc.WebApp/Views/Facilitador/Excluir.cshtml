@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Exclusão de Facilitador";
+}
+
+@model ExcluirFacilitadorViewModel;
+
+<form class="formulario" asp-action="Excluir" asp-route-id="@Model.Id" method="post">
+    <input asp-for="Id" type="hidden">
+
+    <p class="formulario-alerta">Deseja realmente excluir este facilitador?</p>
+
+    <div class="formulario-campo">
+        <label asp-for="Nome">Nome</label>
+        <input asp-for="Nome" type="text" disabled>
+    </div>
+
+    <div class="formulario-campo">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" type="email" disabled>
+    </div>
+
+    <div class="formulario-campo">
+        <label asp-for="Especialidade">Especialidade</label>
+        <input asp-for="Especialidade" type="text" disabled>
+    </div>
+
+    <div class="formulario-acoes">
+        <a asp-action="Listar">Voltar</a>
+        <button type="submit">Confirmar</button>
+    </div>
+</form>

@@ -105,5 +105,37 @@ namespace _02_WebApplication_CommunityWorkshopMvc.WebApp.Controllers
 
             return RedirectToAction(nameof(Listar));
         }
+
+        [HttpGet]
+        public ActionResult Excluir(string id)
+        {
+            Facilitador? facilitador = repositorioFacilitador.SelecionarPorId(id);
+
+            if (facilitador == null)
+                return RedirectToAction(nameof(Listar));
+
+            ExcluirFacilitadorViewModel excluirVm = new ExcluirFacilitadorViewModel(
+                id,
+                facilitador.Nome,
+                facilitador.Email,
+                facilitador.Especialidade
+            );
+
+            return View(excluirVm);
+        }
+
+        [HttpPost]
+        [ActionName("Excluir")]
+        public ActionResult ExcluirConfirmado(ExcluirFacilitadorViewModel excluirVm)
+        {
+            Facilitador? facilitador = repositorioFacilitador.SelecionarPorId(excluirVm.Id);
+
+            if (facilitador == null)
+                return RedirectToAction(nameof(Listar));
+
+            repositorioFacilitador.Excluir(facilitador.Id);
+
+            return RedirectToAction(nameof(Listar));
+        }
     }
 }
