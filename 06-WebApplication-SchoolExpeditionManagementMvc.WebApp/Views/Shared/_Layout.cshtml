@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @* Fonte personalizada *@
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+    rel="stylesheet">
+
+    @* CSS da aplicação *@
+    <link rel="stylesheet" href="~/css/styles.css">
+
+    <title>@ViewBag.Titulo - Gestão da Biblioteca</title>
+</head>
+
+<body>
+
+    <nav>
+        <h3>Gestão da Biblioteca</h3>
+
+        <div class="links-navbar">
+            <a asp-controller="Home" asp-action="Index">Início</a>
+
+            <a asp-controller="Estante" asp-action="Listar">
+                Controle de Estantes
+            </a>
+
+            <a asp-controller="Livro" asp-action="Listar">
+                Controle de Livros
+            </a>
+
+            <a asp-controller="Aluno" asp-action="Listar">
+                Controle de Alunos
+            </a>
+
+            <a asp-controller="Emprestimo" asp-action="Listar">
+                Controle de Empréstimos
+            </a>
+        </div>
+
+    </nav>
+
+    <header>
+        <h2>@ViewBag.Titulo</h2>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+</body>
+
+</html>

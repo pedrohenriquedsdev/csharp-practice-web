@@ -1,0 +1,33 @@
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Cadastro de Estante";
+}
+
+@model CadastrarEstanteViewModel
+
+<form class="formulario" asp-action="Cadastrar" method="post">
+
+    <div class="formulario-campo">
+        <label asp-for="Codigo">Código</label>
+        <input asp-for="Codigo" type="text">
+        <span asp-validation-for="Codigo" class="formulario-validacao-campo"></span>
+    </div>
+
+    <div class="formulario-campo">
+        <label asp-for="Cor">Cor</label>
+        <input asp-for="Cor" type="text">
+        <span asp-validation-for="Cor" class="formulario-validacao-campo"></span>
+    </div>
+
+    <div class="formulario-campo">
+        <label asp-for="DiasEmprestimo">Dias de Empréstimo</label>
+        <input asp-for="DiasEmprestimo" type="number">
+        <span asp-validation-for="DiasEmprestimo" class="formulario-validacao-campo"></span>
+    </div>
+
+    <div class="formulario-acoes">
+        <a asp-action="Listar">Voltar</a>
+        <button type="submit">Confirmar</button>
+    </div>
+
+</form>

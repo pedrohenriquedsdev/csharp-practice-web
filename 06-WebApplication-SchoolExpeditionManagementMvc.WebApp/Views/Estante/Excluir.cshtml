@@ -1,0 +1,32 @@
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Exclusão de Estante";
+}
+
+@model ExcluirEstanteViewModel
+
+<form class="formulario" asp-action="Excluir" asp-route-id="@Model.Id" method="post">
+    <input asp-for="Id" type="hidden">
+
+    <p class="formulario-alerta">Deseja realmente excluir esta estante?</p>
+
+    <div class="formulario-campo">
+        <label asp-for="Codigo">Código</label>
+        <input asp-for="Codigo" type="text" disabled>
+    </div>
+
+    <div class="formulario-campo">
+        <label asp-for="Cor">Cor</label>
+        <input asp-for="Cor" type="text" disabled>
+    </div>
+
+    <div class="formulario-campo">
+        <label asp-for="DiasEmprestimo">Dias de Empréstimo</label>
+        <input asp-for="DiasEmprestimo" type="number" disabled>
+    </div>
+
+    <div class="formulario-acoes">
+        <a asp-action="Listar">Voltar</a>
+        <button type="submit">Confirmar</button>
+    </div>
+</form>
