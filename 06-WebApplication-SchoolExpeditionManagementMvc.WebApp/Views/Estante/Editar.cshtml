@@ -1,33 +1,98 @@
 @{
     Layout = "_Layout";
-    ViewBag.Titulo = "Edição de Estante";
+    ViewBag.Titulo = "Editar Estante";
 }
 
 @model EditarEstanteViewModel
 
-<form class="formulario" asp-action="Editar" asp-route-id="@Model.Id" method="post">
-    <input asp-for="Id" type="hidden">
 
-    <div class="formulario-campo">
-        <label asp-for="Codigo">Codigo</label>
-        <input asp-for="Codigo" type="text">
-        <span asp-validation-for="Codigo" class="formulario-validacao-campo"></span>
-    </div>
+<div class="card border-0 shadow-sm formulario">
 
-    <div class="formulario-campo">
-        <label asp-for="Cor">Cor</label>
-        <input asp-for="Cor" type="text">
-        <span asp-validation-for="Cor" class="formulario-validacao-campo"></span>
-    </div>
 
-    <div class="formulario-campo">
-        <label asp-for="DiasEmprestimo">Dias de Empréstimo</label>
-        <input asp-for="DiasEmprestimo" type="number">
-        <span asp-validation-for="DiasEmprestimo" class="formulario-validacao-campo"></span>
-    </div>
+    <form asp-action="Editar" method="post">
 
-    <div class="formulario-acoes">
-        <a asp-action="Listar">Voltar</a>
-        <button type="submit">Confirmar</button>
-    </div>
-</form>
+
+        <input asp-for="Id" type="hidden">
+
+
+
+        <div class="mb-3">
+
+
+            <label asp-for="Codigo" class="form-label fw-semibold">
+                Código
+            </label>
+
+
+            <input asp-for="Codigo" class="form-control">
+
+
+            <span asp-validation-for="Codigo" class="text-danger">
+            </span>
+
+
+        </div>
+
+
+
+
+        <div class="mb-3">
+
+
+            <label asp-for="Cor" class="form-label fw-semibold">
+                Cor
+            </label>
+
+
+            <input asp-for="Cor" class="form-control">
+
+
+            <span asp-validation-for="Cor" class="text-danger">
+            </span>
+
+
+        </div>
+
+
+
+
+        <div class="mb-3">
+
+
+            <label asp-for="DiasEmprestimo" class="form-label fw-semibold">
+                Dias de empréstimo
+            </label>
+
+
+            <input asp-for="DiasEmprestimo" class="form-control" type="number">
+
+
+            <span asp-validation-for="DiasEmprestimo" class="text-danger">
+            </span>
+
+
+        </div>
+
+
+
+
+        <div class="d-flex justify-content-end gap-2">
+
+
+            <a asp-action="Listar" class="btn btn-outline-secondary">
+                Cancelar
+            </a>
+
+
+            <button class="btn btn-primary" type="submit">
+                Atualizar
+            </button>
+
+
+        </div>
+
+
+    </form>
+
+
+</div>
