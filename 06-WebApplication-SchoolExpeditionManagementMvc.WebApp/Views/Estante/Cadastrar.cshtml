@@ -1,0 +1,90 @@
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Cadastrar Estante";
+}
+
+@model CadastrarEstanteViewModel
+
+
+<div class="card border-0 shadow-sm formulario">
+
+    <form asp-action="Cadastrar" method="post">
+
+
+        <div class="mb-3">
+
+            <label asp-for="Codigo" class="form-label fw-semibold">
+                Código
+            </label>
+
+
+            <input asp-for="Codigo" class="form-control" placeholder="Ex: EST-001">
+
+
+            <span asp-validation-for="Codigo" class="text-danger">
+            </span>
+
+
+        </div>
+
+
+
+        <div class="mb-3">
+
+            <label asp-for="Cor" class="form-label fw-semibold">
+                Cor
+            </label>
+
+
+            <input asp-for="Cor" class="form-control" placeholder="Ex: Azul">
+
+
+            <span asp-validation-for="Cor" class="text-danger">
+            </span>
+
+
+        </div>
+
+
+
+
+        <div class="mb-3">
+
+
+            <label asp-for="DiasEmprestimo" class="form-label fw-semibold">
+                Dias de empréstimo
+            </label>
+
+
+            <input asp-for="DiasEmprestimo" class="form-control" type="number">
+
+
+            <span asp-validation-for="DiasEmprestimo" class="text-danger">
+            </span>
+
+
+        </div>
+
+
+
+        <div class="d-flex justify-content-end gap-2">
+
+
+            <a asp-action="Listar" class="btn btn-outline-secondary">
+                Voltar
+            </a>
+
+
+            <button type="submit" class="btn btn-primary">
+                Salvar
+            </button>
+
+
+        </div>
+
+
+
+    </form>
+
+
+</div>

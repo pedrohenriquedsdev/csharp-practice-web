@@ -1,0 +1,206 @@
+:root {
+
+    --cor-principal: #6366f1;
+    --cor-fundo: #f8fafc;
+    --cor-texto: #1e293b;
+
+}
+
+
+body {
+
+    background: var(--cor-fundo);
+
+    color: var(--cor-texto);
+
+    font-family:
+        "Google Sans",
+        system-ui,
+        sans-serif;
+
+}
+
+
+/* Títulos */
+
+h2 {
+
+    letter-spacing: -0.5px;
+
+}
+
+
+/* Botão cadastrar */
+
+.btn-cadastrar {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background:
+        var(--cor-principal);
+
+    color: white;
+
+    border-radius: 10px;
+
+    padding: 10px 20px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: .2s;
+
+}
+
+
+.btn-cadastrar:hover {
+
+    background: #4f46e5;
+
+    color: white;
+
+}
+
+
+/* Tabela */
+
+.table {
+
+    background: white;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+}
+
+
+.table thead th {
+
+    background: #f1f5f9;
+
+    color: #475569;
+
+    text-transform: uppercase;
+
+    font-size: .75rem;
+
+    letter-spacing: .05em;
+
+}
+
+
+.table tbody tr {
+
+    vertical-align: middle;
+
+}
+
+
+.table tbody tr:hover {
+
+    background: #f8fafc;
+
+}
+
+
+
+/* Cards dos formulários */
+
+.formulario {
+
+    max-width: 650px;
+
+    background: white;
+
+    padding: 32px;
+
+    border-radius: 16px;
+
+    box-shadow:
+
+        0 10px 30px rgba(0, 0, 0, .05);
+
+}
+
+
+/* Inputs */
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+
+    border-radius: 10px;
+
+    padding: 12px;
+
+}
+
+
+.formulario input:focus {
+
+    border-color: var(--cor-principal);
+
+    box-shadow:
+        0 0 0 .2rem rgba(99, 102, 241, .15);
+
+}
+
+
+/* Botões */
+
+.formulario-acoes {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+}
+
+
+.formulario-acoes button {
+
+    background:
+        var(--cor-principal);
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 10px 25px;
+
+    color: white;
+
+    font-weight: 600;
+
+}
+
+
+.formulario-acoes a {
+
+    border-radius: 10px;
+
+}
+
+
+/* Mensagens */
+
+.formulario-alerta {
+
+    background: #eef2ff;
+
+    border-left:
+        4px solid var(--cor-principal);
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+}
