@@ -1,12 +1,13 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using _06_WebApplication_SchoolExpeditionManagementMvc.WebApp.ModuloEstantes;
 
 namespace _06_WebApplication_SchoolExpeditionManagementMvc.WebApp.Compartilhado;
 
 public sealed class ContextoJson
 {
     // ALTERAR O PLACEHOLDER PARA SE ADEQUAR AOS REQUISITOS DO PROJETO --_--
-    // public List<Equipamento> Equipamentos { get; set; } = new List<Equipamento>();
+    public List<Estante> Estantes { get; set; } = new List<Estante>();
     // public List<Fabricante> Fabricantes { get; set; } = new List<Fabricante>();
     // public List<Chamado> Chamados { get; set; } = new List<Chamado>();
 
@@ -51,7 +52,7 @@ public sealed class ContextoJson
         if (contextoSalvo == null)
             return;
 
-        // this.Equipamentos = contextoSalvo.Equipamentos;
+        Estantes = contextoSalvo.Estantes;
         // this.Fabricantes = contextoSalvo.Fabricantes;
         // this.Chamados = contextoSalvo.Chamados;
     }
