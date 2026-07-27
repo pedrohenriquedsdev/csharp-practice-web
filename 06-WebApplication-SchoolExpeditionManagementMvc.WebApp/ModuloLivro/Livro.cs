@@ -1,5 +1,5 @@
 using _06_WebApplication_SchoolExpeditionManagementMvc.WebApp.Compartilhado;
-using _06_WebApplication_SchoolExpeditionManagementMvc.WebApp.ModuloEstantes;
+using _06_WebApplication_SchoolExpeditionManagementMvc.WebApp.ModuloEstante;
 
 namespace _06_WebApplication_SchoolExpeditionManagementMvc.WebApp.ModuloLivro;
 
@@ -27,7 +27,7 @@ public class Livro : EntidadeBase<Livro>
     }
 
     // Regras que dependem de outras entidades
-    // (como título e edição duplicados) são validadas no repositório.
+    // (como título e edição duplicados) são validadas no Controller.
     public override List<string> Validar()
     {
         List<string> erros = new();

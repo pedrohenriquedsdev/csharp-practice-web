@@ -1,5 +1,5 @@
 using _06_WebApplication_SchoolExpeditionManagementMvc.WebApp.Compartilhado;
-using _06_WebApplication_SchoolExpeditionManagementMvc.WebApp.ModuloEstantes;
+using _06_WebApplication_SchoolExpeditionManagementMvc.WebApp.ModuloEstante;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _06_WebApplication_SchoolExpeditionManagementMvc.WebApp.Controllers;
