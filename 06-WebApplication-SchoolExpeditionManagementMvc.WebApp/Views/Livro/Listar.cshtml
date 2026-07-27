@@ -1,0 +1,156 @@
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Livros";
+}
+
+@model List<ListarLivroViewModel>
+
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+
+        <h3 class="fw-bold mb-1">
+            Livros cadastrados
+        </h3>
+
+        <p class="text-muted mb-0">
+            Gerencie os livros disponíveis na biblioteca.
+        </p>
+
+    </div>
+
+
+    <a class="btn-cadastrar" asp-action="Cadastrar">
+        + Novo Livro
+    </a>
+
+
+</div>
+
+
+
+@if (Model.Count == 0)
+{
+
+    <div class="alert alert-light border shadow-sm">
+
+        Nenhum livro cadastrado.
+
+    </div>
+
+}
+else
+{
+
+    <div class="card border-0 shadow-sm">
+
+        <div class="card-body p-0">
+
+
+            <div class="table-responsive">
+
+
+                <table class="table table-hover mb-0">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Edição</th>
+                            <th>Data Publicação</th>
+                            <th>Estante</th>
+                            <th>Status</th>
+                            <th class="text-end">Ações</th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody>
+
+
+                        @foreach (ListarLivroViewModel l in Model)
+                        {
+
+                            <tr>
+
+                                <td>
+
+                                    <small class="text-muted">
+                                        @l.Id
+                                    </small>
+
+                                </td>
+
+
+                                <td class="fw-semibold">
+                                    @l.Titulo
+                                </td>
+
+
+                                <td>
+                                    @l.NumeroEdicao
+                                </td>
+
+
+                                <td>
+                                    @l.DataPublicacao.ToShortDateString()
+                                </td>
+
+
+                                <td>
+                                    @l.Estante
+                                </td>
+
+
+                                <td>
+                                    @l.Status
+                                </td>
+
+
+                                <td class="text-end">
+
+
+                                    <a class="btn btn-sm btn-outline-primary" asp-action="Editar" asp-route-id="@l.Id">
+
+                                        Editar
+
+                                    </a>
+
+
+                                    <a class="btn btn-sm btn-outline-danger" asp-action="Excluir" asp-route-id="@l.Id">
+
+                                        Excluir
+
+                                    </a>
+
+
+                                </td>
+
+
+                            </tr>
+
+                        }
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+}

@@ -53,6 +53,18 @@ public class EstanteController : Controller
     [HttpPost]
     public ActionResult Cadastrar(CadastrarEstanteViewModel cadastrarVm)
     {
+        Estante? estanteExistente = repositorioEstante
+            .Filtrar(e => e.Codigo == cadastrarVm.Codigo)
+            .FirstOrDefault();
+
+        if (estanteExistente != null)
+        {
+            ModelState.AddModelError(
+                nameof(cadastrarVm.Codigo),
+                "Já existe uma estante com este código."
+            );
+        }
+
         if (!ModelState.IsValid)
             return View(cadastrarVm);
 
