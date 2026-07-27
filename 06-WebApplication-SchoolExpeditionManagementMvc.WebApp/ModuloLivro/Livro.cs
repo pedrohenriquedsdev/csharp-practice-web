@@ -13,6 +13,8 @@ public class Livro : EntidadeBase<Livro>
 
     public Estante Estante { get; set; } = null!;
 
+    public StatusLivro Status { get; set; }
+
     public Livro()
     {
     }
@@ -24,9 +26,10 @@ public class Livro : EntidadeBase<Livro>
         NumeroEdicao = numeroEdicao;
         DataPublicacao = dataPublicacao;
         Estante = estante;
+        Status = StatusLivro.Disponivel;
     }
 
-    // Regras que dependem de outras entidades
+    // Regras que dependem de outros registros existentes
     // (como título e edição duplicados) são validadas no Controller.
     public override List<string> Validar()
     {
@@ -54,7 +57,7 @@ public class Livro : EntidadeBase<Livro>
     }
 
     // Atualiza os dados editáveis da entidade.
-    // O Id permanece o mesmo.
+    // O Id e o Status permanecem os mesmos.
     public override void AtualizarDados(Livro entidadeAtualizada)
     {
         Titulo = entidadeAtualizada.Titulo;
