@@ -1,0 +1,144 @@
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Alunos";
+}
+
+@model List<ListarAlunoViewModel>
+
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+
+        <h3 class="fw-bold mb-1">
+            Alunos cadastrados
+        </h3>
+
+        <p class="text-muted mb-0">
+            Gerencie os alunos cadastrados na biblioteca.
+        </p>
+
+    </div>
+
+
+    <a class="btn-cadastrar" asp-action="Cadastrar">
+        + Novo Aluno
+    </a>
+
+</div>
+
+
+
+@if (Model.Count == 0)
+{
+    <div class="alert alert-light border shadow-sm">
+
+        Nenhum aluno cadastrado.
+
+    </div>
+}
+else
+{
+
+    <div class="card border-0 shadow-sm">
+
+        <div class="card-body p-0">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover mb-0">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Responsável</th>
+                            <th>Telefone</th>
+                            <th class="text-end">Ações</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+
+                        @foreach (ListarAlunoViewModel a in Model)
+                        {
+
+                            <tr>
+
+                                <td>
+
+                                    <small class="text-muted">
+                                        @a.Id
+                                    </small>
+
+                                </td>
+
+
+                                <td class="fw-semibold">
+
+                                    @a.Nome
+
+                                </td>
+
+
+                                <td>
+
+                                    @a.NomeResponsavel
+
+                                </td>
+
+
+                                <td>
+
+                                    @a.Telefone
+
+                                </td>
+
+
+                                <td class="text-end">
+
+
+                                    <a class="btn btn-sm btn-outline-primary" asp-action="Editar" asp-route-id="@a.Id">
+
+                                        Editar
+
+                                    </a>
+
+
+                                    <a class="btn btn-sm btn-outline-danger" asp-action="Excluir" asp-route-id="@a.Id">
+
+                                        Excluir
+
+                                    </a>
+
+
+                                </td>
+
+
+                            </tr>
+
+                        }
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+}
