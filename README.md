@@ -173,6 +173,5 @@ csharp-practice-web/
 
 _Toda aplicação web começa com um request. Toda maestria começa com um commit._
 
-⭐ Se este repositório te inspirou, deixa uma estrela!
 
 </div>
